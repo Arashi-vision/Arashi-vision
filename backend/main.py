@@ -10,6 +10,12 @@ CORS(app)
 # -----------------------------
 # Import Blueprints (Routers)
 # -----------------------------
+auth_bp = None
+community_bp = None
+admin_bp = None
+ai_bp = None
+upload_bp = None
+
 try:
     from routes.auth_routes import auth_bp
     from routes.community_routes import community_bp
@@ -20,13 +26,22 @@ except Exception as e:
     print("Error importing routes:", e)
 
 # -----------------------------
-# Register Blueprints
+# Register Blueprints SAFELY
 # -----------------------------
-app.register_blueprint(auth_bp, url_prefix="/auth")
-app.register_blueprint(community_bp, url_prefix="/community")
-app.register_blueprint(admin_bp, url_prefix="/admin")
-app.register_blueprint(ai_bp, url_prefix="/ai")
-app.register_blueprint(upload_bp, url_prefix="/upload")
+if auth_bp:
+    app.register_blueprint(auth_bp, url_prefix="/auth")
+
+if community_bp:
+    app.register_blueprint(community_bp, url_prefix="/community")
+
+if admin_bp:
+    app.register_blueprint(admin_bp, url_prefix="/admin")
+
+if ai_bp:
+    app.register_blueprint(ai_bp, url_prefix="/ai")
+
+if upload_bp:
+    app.register_blueprint(upload_bp, url_prefix="/upload")
 
 # -----------------------------
 # Home Route
