@@ -1,9 +1,13 @@
+from flask import Blueprint, request, jsonify
 
-from fastapi import APIRouter
+voice_bp = Blueprint("voice_bp", __name__)
 
-voice_router = APIRouter()
+@voice_bp.route("/process", methods=["POST"])
+def process_voice():
+    data = request.get_json()
 
-@voice_router.post("/stt")
-def stt():
-    return {"stt": True}
+    text = data.get("text", "")
 
+    return jsonify({
+        "processed_text": text.upper()
+    })
