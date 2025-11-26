@@ -64,3 +64,5 @@ from routes.analytics_routes import router as analytics_router
 app.include_router(analytics_router)
 from routes.public_api_routes import router as public_router
 app.include_router(public_router)
+from utils.security_headers import add_headers
+app.middleware("http")(add_headers)
