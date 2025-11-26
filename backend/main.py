@@ -1,5 +1,5 @@
 # ==========================================
-#  Omnicore Backend - Production Main File
+#  ARASHI Backend - Production Main File
 #  Framework: Flask
 #  Supports: CORS, Security, Blueprints, AI
 # ==========================================
