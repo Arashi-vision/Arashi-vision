@@ -60,3 +60,5 @@ if __name__ == "__main__":
 
 from routes.notification_routes import router as notify_router
 app.include_router(notify_router)
+from routes.analytics_routes import router as analytics_router
+app.include_router(analytics_router)
