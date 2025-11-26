@@ -62,3 +62,5 @@ from routes.notification_routes import router as notify_router
 app.include_router(notify_router)
 from routes.analytics_routes import router as analytics_router
 app.include_router(analytics_router)
+from routes.public_api_routes import router as public_router
+app.include_router(public_router)
